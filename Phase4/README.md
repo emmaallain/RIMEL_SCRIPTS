@@ -8,7 +8,7 @@ Scripts pour analyser l'historique git, inférer les rôles des contributeurs (B
    ```bash
    pip install -r requirements.txt
 
-```
+   ```
 Rappel, n'oubliez pas de mettre votre token github en variable d'environement (.env a la racine du repo)
 
 ## Pipeline d'Utilisation
