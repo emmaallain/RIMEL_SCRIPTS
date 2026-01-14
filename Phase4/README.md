@@ -1,28 +1,82 @@
-Voici une version complétée et fluide de ton document :
+# Phase 4 : Analyse Quantitative des Contributions
 
----
+Scripts pour analyser l'historique git, inférer les rôles des contributeurs (Backend, DevOps, etc.) et visualiser les phases du projet dans le temps.
 
-# Analyse des contributeurs
+## Installation
 
-* **Étape 1 : Collecte des commits**
-  
-    Lancez `phase4_contributions.py <repo>` sur un repository GitHub cloné au préalable.
-    Deux fichiers sont générés :
+1. **Installer les dépendances :**
+   ```bash
+   pip install -r requirements.txt
 
-    * `commits_detailed.csv` : liste détaillée des commits et fichiers modifiés.
-    * `contributors_profiles.csv` : informations des contributeurs enrichies avec leurs profils GitHub.
+```
+Rappel, n'oubliez pas de mettre votre token github en variable d'environement (.env a la racine du repo)
 
-* **Étape 2 : Analyse des contributeurs**
-  
-    Lancez `phase4_contributor_analysis.py`, qui lit les résultats précédents et produit :
+## Pipeline d'Utilisation
 
-    * `contributors_activity_summary.csv` : activité brute par contributeur et par catégorie.
-    * `contributors_profiles_inferred.csv` : type/profil de contributeur déduit.
-    * `profiles_activity_over_time.csv` : activité mensuelle de chaque type de profil.
+Exécutez les scripts dans cet ordre précis.
 
-* **Étape 3 : Analyse par poste / rôle**
-  
-    Lancez `phase4_job_activity_over_time.py`, qui combine les commits avec les informations de poste des contributeurs (à rechercher à la main) et génère :
+### 1. Extraction des Données
 
-    * `job_activity_over_time.csv` : évolution mensuelle des contributions par rôle et par type d’activité.
+Extrait l'historique des commits et les métadonnées des profils.
 
+```bash
+python phase4_contributions.py <chemin_vers_repo_git_local>
+```
+
+* **Sortie :** `results/commits_detailed.csv`, `results/contributors_profiles.csv`
+
+### 2. Inférence des Profils
+
+Déduit le rôle technique (ex: Data Scientist, Frontend) selon les fichiers modifiés.
+
+```bash
+python phase4_contributor_inferrence.py
+
+```
+
+* **Sortie :** `results/contributors_jobs_inferred.csv`
+
+### 3. Visualisation : Chronologie des Contributeurs
+
+Génère un graphique de flux montrant qui intervient quand, avec son rôle.
+
+```bash
+# Avec les jobs inférés 
+python phase4_contributions_vizualisation.py results/contributors_jobs_inferred.csv
+
+# OU avec un fichier manuel
+python phase4_contributions_vizualisation.py results/contributors_jobs.csv
+
+```
+
+A noté que `results/contributors_jobs.csv` doit être remplit manuellement avec le vrai métier des contributeurs (via linkedIn, portfolio par exemple)
+
+Pour plus de détails sur l'inférence des profils, voir [utils](/RIMEL_SCRIPTS/utils/)
+
+* **Sortie :** `results/contributions_timeline_jobs.png`
+
+### 4. Visualisation : Phases du Projet
+
+Génère un diagramme en barres montrant l'activité dominante par mois.
+
+```bash
+# Avec les jobs inférés ou manuels
+python phase4_vizualisation_project_state.py <file>
+
+```
+
+* **Sortie :** `results/project_steps_jobs_bar.png`
+
+## Structure de Dossier Requise
+
+Votre dossier doit respecter cette structure pour les imports :
+
+```text
+.
+├── phase4_contributions.py
+├── phase4_contributor_inferrence.py
+├── phase4_contributions_vizualisation.py
+├── phase4_vizualisation_project_state.py
+├── results/       # Créé automatiquement
+
+```
