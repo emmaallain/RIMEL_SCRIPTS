@@ -51,7 +51,7 @@ python phase4_contributions_vizualisation.py results/contributors_jobs.csv
 
 A noté que `results/contributors_jobs.csv` doit être remplit manuellement avec le vrai métier des contributeurs (via linkedIn, portfolio par exemple)
 
-Pour plus de détails sur l'inférence des profils, voir [utils](/RIMEL_SCRIPTS/utils/)
+Pour plus de détails sur l'inférence des profils, voir [utils](/utils/)
 
 * **Sortie :** `results/contributions_timeline_jobs.png`
 
