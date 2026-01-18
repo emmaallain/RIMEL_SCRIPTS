@@ -12,7 +12,7 @@ Le kit se compose de deux scripts Python :
     * Ignore automatiquement les fichiers utilitaires (`utils`) et les classes de base (`base_enricher.py`).
     * Génère un journal CSV détaillé de tous les changements.
 
-2.  **`plot_enrichment_history.py`** :
+2.  **`plot.py`** :
     * Lit le journal CSV.
     * Rejoue l'historique pour calculer le **nombre total** de fichiers d'enrichissement à une date donnée.
     * Génère un graphique temporel montrant la croissance de votre logique d'enrichissement.
@@ -45,8 +45,10 @@ python track_enrichment_history.py ../chemin/vers/votre/repo/
 Exécutez le script de tracé pour générer le graphique.
 
 ```bash
-python plot_enrichment_history.py
+python plot.py
 ```
 
 * **Entrée :** Lit le fichier `results/enrichment_history.csv`.
-* **Sortie :** Génère le graphique `results/enrichment_count_evolution.png`.
+* **Sortie :** Génère le graphique `results/data_preparation_activity_weekly.png`.
+            Génère le graphique `results/data_preparation_top_files.png`.
+            Génère le graphique `results/data_preparation_code_churn.png`.
