@@ -2,15 +2,6 @@
 
 Scripts pour analyser l'historique git, inférer les rôles des contributeurs (Backend, DevOps, etc.) et visualiser les phases du projet dans le temps.
 
-## Installation
-
-1. **Installer les dépendances :**
-   ```bash
-   pip install -r requirements.txt
-
-   ```
-Rappel, n'oubliez pas de mettre votre token github en variable d'environement (.env a la racine du repo)
-
 ## Pipeline d'Utilisation
 
 Exécutez les scripts dans cet ordre précis.
