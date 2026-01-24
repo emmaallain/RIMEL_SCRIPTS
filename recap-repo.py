@@ -12,11 +12,10 @@ print("=" * 70)
 
 # Configuration
 REPO_PATHS = [
-    # Ajoutez vos chemins ici, par exemple:
-    "SHIFTPORTAL/1/results",
-    "13_pollution_eau/phase_1/results",
-    "CINEMA/Phase1/results",
-    "ECLAIREUR_PUBLIC/Phase1/results"
+    "repositories_analysis/shiftdataportal/Phase1/results",
+    "repositories_analysis/13_pollution_eau/Phase1/results",
+    "repositories_analysis/13_reveler_inegalites_cinema/Phase1/results",
+    "repositories_analysis/13_eclaireur_public/Phase1/results"
 ]
 
 # Ou passez les chemins en arguments

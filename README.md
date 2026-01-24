@@ -1,4 +1,34 @@
-# Description des scripts
+# Analyse de Repositories
 
-### contributors_final_script.py
-Ce script charge des données de commits depuis un fichier Excel,Annotation_Ready.xlsx, analyse l’activité mensuelle du projet par type de fichiers, détecte automatiquement les grandes phases du projet à partir de l’évolution des usages techniques, associe chaque commit à une phase chronologique, identifie et classe les principaux contributeurs par phase, puis exporte ces résultats dans un fichier Excel pour exploitation ou visualisation, et pourrait être amélioré ou généralisé en rendant les seuils adaptatifs, en intégrant d’autres métriques (lignes de code, types de commits, issues) ou en appliquant la même méthode à d’autres dépôts pour comparer des trajectoires de projets. L'association de chaque profil à un métier se fait manuellement.
+Ce projet permet d'auditer la structure de plusieurs dépôts de code (Code vs Data, Notebooks, etc.) et de générer un tableau de bord comparatif visuel.
+
+## Installation
+
+Toutes les dépendances nécessaires à l'exécution des scripts sont listées dans `requirements.txt`.
+
+1. Installez les librairies Python :
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+2. Créez un fichier `.env` à la racine du projet pour votre token github nécessaire à certains scripts :
+    ```bash
+    GITHUB_TOKEN=votre_token_github_ici
+    ```
+
+## Structure du Projet
+
+L'architecture est organisée pour séparer les outils communs des résultats d'analyse spécifiques :
+
+```text
+.
+├── common/                     # Scripts et étapes communes à tous les projets
+├── repositories_analysis/      # Dossier contenant l'analyse de chaque repo (organisé par step)
+│   ├── [NOM_DU_REPO]/
+│   │   └── results/            # Fichiers JSON/CSV générés par l'exploration
+├── recap-repo.py               # Script principal de génération du dashboard
+├── requirements.txt            # Liste des dépendances
+├── .env                        # Configuration (Token API)
+└── multi_repo_dashboard.png    # (Output) Le tableau de bord final généré
+
+```
