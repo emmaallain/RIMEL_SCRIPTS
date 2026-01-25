@@ -15,10 +15,10 @@ from utils.csv_helper import CsvHelper
 BASE_DIR = Path(__file__).parent.parent.parent
 
 REPO_PATHS = [
-    "repositories_analysis/shiftdataportal/Phase1/results",
-    "repositories_analysis/13_pollution_eau/Phase1/results",
-    "repositories_analysis/13_reveler_inegalites_cinema/Phase1/results",
-    "repositories_analysis/13_eclaireur_public/Phase1/results"
+    "repositories_analysis/shiftdataportal/Phase4/results",
+    "repositories_analysis/13_pollution_eau/Phase4/results",
+    "repositories_analysis/13_reveler_inegalites_cinema/Phase4/results",
+    "repositories_analysis/13_eclaireur_public/Phase4/results"
 ]
 
 COMMITS_FILENAME = "commits_detailed.csv"
